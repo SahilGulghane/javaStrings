@@ -1,0 +1,46 @@
+we have ascii value for each character given
+
+lowercase - uppercase = 32
+
+ex
+a(97) - A(41) =32
+
+so for lower case we have formula
+
+uppercase + 32  = lowercase
+ex 41(a) + 32 = 97 (A)
+
+and for uppercase we have
+
+lowercase - 32 = uppercase
+ex 97(A) - 32 = 41(a)
+
+
+for considering space ex my name is sahil
+we have to identify space as identify we have to put same data else convert to upper case  or lowercase as need
+ascii value of space is 32 ...
+
+for 1st alphabet we have to identify space as space come then move pointer to next location
+
+
+output
+function1
+Enter a string: MY NAME IS SAHIL
+entered string: MYNAMEISSAHIL
+mynameissahil
+
+function2
+Enter a string: my name is sahil
+entered string: mynameissahil
+MYNAMEISSAHIL
+
+function3
+Enter a string: my name is sahil
+entered string: my name is sahil
+MY NAME IS SAHIL
+
+function4
+Enter a string: my name is sahil
+entered string: my name is sahil
+my Name Is Sahil
+
