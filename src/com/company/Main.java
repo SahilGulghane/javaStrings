@@ -1,128 +1,52 @@
 package com.company;
 
-import  java.util.Scanner;
-// following function will convert string into lower upper upperincludespace upper1stalphabet
-
-
+import java.sql.Array;
+import java.util.Arrays;
 import java.util.Locale;
-class Operation {
-    //this function will convert provided string into lowercase without giving blank spaces
-    public void onlylower() {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Enter a string: ");
-        String st = sc.nextLine();
-        st = st.replace(" ", "");
-        char y[] = st.toCharArray();
-        int size = st.length();
-        int i = 0;
-        while (i != size) {
-            if (y[i] >= 65 && y[i] <= 90) {
-                y[i] = (char) (y[i] + 32);
-                i++;
-            } else if (y[i] >= 97 && y[i] <= 122) {
-                y[i] = y[i];
-                i++;
-            }
+import java.util.Scanner;
 
-
-        }
-        System.out.println("entered string: " + st);
-        System.out.println(y);
-
-    }
-
-// this function will convert string into uppercase removing blank spaces
-    public void onlyupper() {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Enter a string: ");
-        String st = sc.nextLine();
-        st = st.replace(" ", "");
-        char y[] = st.toCharArray();
-        int size = st.length();
-        int i = 0;
-        while (i != size) {
-            if (y[i] >= 65 && y[i] <= 90) {
-                y[i] = y[i];
-                i++;
-            } else if (y[i] >= 97 && y[i] <= 122) {
-
-                y[i] = (char) (y[i] - 32);
-                i++;
-            }
-
-
-        }
-        System.out.println("entered string: " + st);
-        System.out.println(y);
-
-    }
-//this function will covert string into uppercase considering blank spaces
-    public void onlyupperwithoutreplace() {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Enter a string: ");
-        String st = sc.nextLine();
-
-        char y[] = st.toCharArray();
-        int size = st.length();
-        int i = 0;
-        while (i != size) {
-            if (y[i] >= 65 && y[i] <= 90) {
-                y[i] = y[i];
-                i++;
-            } else if (y[i] >= 97 && y[i] <= 122) {
-
-                y[i] = (char) (y[i] - 32);
-                i++;
-            }
-            else if(y[i] == 32){
-                y[i] = y[i];
-                i++;
-            }
-
-
-        }
-        System.out.println("entered string: " + st);
-        System.out.println(y);
-
-    }
-
-// this function will convert 1st alphabet of word in to upper case...
-    public void onlyupper1staplhabet() {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Enter a string: ");
-        String st = sc.nextLine();
-
-        char y[] = st.toCharArray();
-        int size = st.length();
-        int i = 0;
-        while (i != size) {
-                if(y[i] == 32 ) {
-                   y[i+1] = (char)(y[i+1] - 32);
-
-                }i++;
-
-
-
-        }
-        System.out.println("entered string: " + st);
-        System.out.println(y);
-
-    }
-}
-
-
-
-
+//an string contain all aplhabets more or more than one....
+//create an array for 26 aplabets...
+//then get string remove spaces also convert to uppercase
+//formula int index = b[i] - 65; means i=0 ,a[i] = A, A=65 as per formula A-65 = 0 so b[index] = 0
+// b[index] so b[0] become 1
+// if data of array a all i.e 0 to 25 (alphabet 26) is 1 the paragram else any one of 0 then paragram
 public class Main {
 
 
     public static void main(String[] args) {
-        Operation st = new Operation();
-        st.onlylower();
-        st.onlyupper();
-        st.onlyupperwithoutreplace();
-        st.onlyupper1staplhabet();
+        Scanner sc =new Scanner(System.in);
+        String s = sc.nextLine();
 
+
+        s = s.replace(" ","");
+
+        s= s.toUpperCase();
+        char b[] = s.toCharArray();
+        int size = s.length();
+
+        int[] a = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+
+       int i =0;
+       while (i != size ){
+           int index = b[i] - 65;
+           a[index] = 1;
+
+           i++;
+       }
+       int j =0;
+       while (j != 26){
+           if(a[j] == 1 ){
+               j++;
+
+           }
+           else{
+               System.out.println("not an pangram");
+               System.exit(0);
+           }
+       }
+        System.out.println("its an pangram");
     }
 }
 
