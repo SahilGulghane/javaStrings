@@ -1,127 +1,35 @@
 package com.company;
 
-import  java.util.Scanner;
-// following function will convert string into lower upper upperincludespace upper1stalphabet
-
-
-import java.util.Locale;
-class Operation {
-    //this function will convert provided string into lowercase without giving blank spaces
-    public void onlylower() {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Enter a string: ");
-        String st = sc.nextLine();
-        st = st.replace(" ", "");
-        char y[] = st.toCharArray();
-        int size = st.length();
-        int i = 0;
-        while (i != size) {
-            if (y[i] >= 65 && y[i] <= 90) {
-                y[i] = (char) (y[i] + 32);
-                i++;
-            } else if (y[i] >= 97 && y[i] <= 122) {
-                y[i] = y[i];
-                i++;
-            }
-
-
-        }
-        System.out.println("entered string: " + st);
-        System.out.println(y);
-
-    }
-
-// this function will convert string into uppercase removing blank spaces
-    public void onlyupper() {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Enter a string: ");
-        String st = sc.nextLine();
-        st = st.replace(" ", "");
-        char y[] = st.toCharArray();
-        int size = st.length();
-        int i = 0;
-        while (i != size) {
-            if (y[i] >= 65 && y[i] <= 90) {
-                y[i] = y[i];
-                i++;
-            } else if (y[i] >= 97 && y[i] <= 122) {
-
-                y[i] = (char) (y[i] - 32);
-                i++;
-            }
-
-
-        }
-        System.out.println("entered string: " + st);
-        System.out.println(y);
-
-    }
-//this function will covert string into uppercase considering blank spaces
-    public void onlyupperwithoutreplace() {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Enter a string: ");
-        String st = sc.nextLine();
-
-        char y[] = st.toCharArray();
-        int size = st.length();
-        int i = 0;
-        while (i != size) {
-            if (y[i] >= 65 && y[i] <= 90) {
-                y[i] = y[i];
-                i++;
-            } else if (y[i] >= 97 && y[i] <= 122) {
-
-                y[i] = (char) (y[i] - 32);
-                i++;
-            }
-            else if(y[i] == 32){
-                y[i] = y[i];
-                i++;
-            }
-
-
-        }
-        System.out.println("entered string: " + st);
-        System.out.println(y);
-
-    }
-
-// this function will convert 1st alphabet of word in to upper case...
-    public void onlyupper1staplhabet() {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Enter a string: ");
-        String st = sc.nextLine();
-
-        char y[] = st.toCharArray();
-        int size = st.length();
-        int i = 0;
-        while (i != size) {
-                if(y[i] == 32 ) {
-                   y[i+1] = (char)(y[i+1] - 32);
-
-                }i++;
-
-
-
-        }
-        System.out.println("entered string: " + st);
-        System.out.println(y);
-
-    }
-}
-
-
-
-
+import java.util.Arrays;
+//Anagram is a word or phase formed by rearranging the letters of different word or phase ex (silent - listen)...
+// sort both Strings
+//check data of both string are same after sorting....
+// if true then it is Anagram...
+//or false then it is not an Anagram...
+// Arrays.sort(array) it helps to sort array...
+// Arrays.equal(array1,array2) it helps to check both array are equal…
 public class Main {
 
 
     public static void main(String[] args) {
-        Operation st = new Operation();
-        st.onlylower();
-        st.onlyupper();
-        st.onlyupperwithoutreplace();
-        st.onlyupper1staplhabet();
+       String s = "hello sahil";
+       s = s.toLowerCase();
+       s.replace(" ","");
+       char a[] = s.toCharArray();
+        String t = "hello lishr";
+        t = t.toLowerCase();
+        t.replace(" ","");
+        char b[] = t.toCharArray();
+        Arrays.sort(a);
+        Arrays.sort(b);
+        Boolean x = Arrays.equals(a,b);
+        if(x == true){
+            System.out.println("is an Anagram");
+        }
+        else{
+            System.out.println("not an Anagram");
+        }
+
 
     }
 }
