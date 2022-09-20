@@ -12,19 +12,19 @@ public class Main {
         Scanner sc =new Scanner(System.in);
         System.out.println("enter the string");
         String currents = sc.nextLine();
-
         char y[] =  currents.toCharArray();
-        System.out.println("enter the character you want to delete from string");
+        System.out.println("enter the targeted character");
+        char target = sc.next().charAt(0);
+        System.out.println("enter the letter which want to be replace");
         char key = sc.next().charAt(0);
-        int i =0;
-        String ns = "";
-        while (i != y.length){
 
-            if(y[i] != key){
-                ns = ns+y[i];
+        int i =0;
+        while (i != currents.length()){
+            if(y[i] == target){
+                y[i] =key;
             }i++;
         }
-        System.out.println(ns);
+        System.out.println(y);
 
     }
 }
